@@ -1,0 +1,114 @@
+GET http://localhost:8800
+
+###
+
+POST http://localhost:8800/api/hotels
+Content-Type: application/json
+
+{
+    "name": "Hotel Jane 4",
+    "type": "hotel",
+    "city": "london",
+    "address": "somewhere",
+    "distance": "500",
+    "title": "Best Hotel in town",
+    "desc": "description",
+    "cheapestPrice": 100
+}
+
+###UPDATE HOTEL
+PuT http://localhost:8800/api/hotels/find/6723355e170d3ded8b7c3c0f
+Content-Type: application/json
+
+{
+   "photos": ["https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/298828890.jpg?k=306e2449625ad5837a228864b203933fa495cc9988d7d13ea29c2abba5b5ab2b&o=&s=600x",
+   "https://pix8.agoda.net/hotelImages/21632296/294984942/236b3f41d3ba2d746c2128bcde901e24.jpg?ca=19&ce=1&s=600x",
+   "https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/145360134.jpg?k=b7671bd291832fa1b8143de18cd908a17b7c7fe438534256e3ef0c93235fe33e&o=&s=600x"]
+}
+
+###
+GET http://localhost:8800/api/hotels
+
+###
+GET http://localhost:8800/api/hotels?featured=true&limit=2&min=10&max=200
+
+###
+DELETE http://localhost:8800/api/hotels/670e622345034eb2ee6a5588
+
+###REGISTER
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+
+{
+   "username": "NadiS",
+   "email": "nadiS@gmail.com",
+   "password": "1234"
+}
+
+###LOGIN
+POST http://localhost:8800/api/auth/login
+Content-Type: application/json
+
+{
+   "username": "nady",
+   "password": "Bookingapp1?!"
+}
+
+###UPDATE USER
+PUT http://localhost:8800/api/users/672090062644e76acdd64d16
+Content-Type: application/json
+
+{
+   "username": "NadiUpdated"
+}
+
+###CHECK AUTH
+GET http://localhost:8800/api/users/checkauthentication
+
+###CHECK USER
+GET http://localhost:8800/api/users/checkuser/672090062644e76acdd64d16
+
+###CHECK ADMIN 
+GET http://localhost:8800/api/users/checkadmin/672090062644e76acdd64d16
+
+###CREATE ROOM
+POST http://localhost:8800/api/rooms/671f2da4527a0aca99e7b694
+Content-Type: application/json
+
+{
+   "title": "Extra Room",
+   "desc": "Twin size bed, 1 bathroom",
+   "price": 250,
+   "maxPeople": 2,
+   "roomNumbers": [{"number": 301}]
+}
+
+###DELETE ROOM
+DELETE http://localhost:8800/api/rooms/6735e19302d77881ab7dc31f/671f2da4527a0aca99e7b694
+
+###UPDATE ROOM
+PUT http://localhost:8800/api/rooms/672cb8191b681c5098c5a1e0
+Content-Type: application/json
+
+{
+   "desc": "Queen size bed, 2 bathrooms, balcony, sea view"
+}
+
+###COUNT BY CITY
+GET http://localhost:8800/api/hotels/countByCity?cities=berlin,madrid,london
+
+###COUNT BY TYPE
+GET http://localhost:8800/api/hotels/countByType
+
+###GET HOTEL ROOMS
+GET http://localhost:8800/api/hotels/room/671f2da4527a0aca99e7b694
+
+###ADD DATE
+PUT http://localhost:8800/api/rooms/availability/672cb8191b681c5098c5a1e1
+Content-Type: application/json
+
+{
+   "dates": ["02024-11-07T12:52:41.935Z", "2024-11-07T12:52:41.935Z"]
+}
+
+
