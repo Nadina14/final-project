@@ -196,16 +196,6 @@ const RoomForm = ({ hotelId, roomId }) => {
       <button type="submit">
         {roomId ? 'Update Room' : 'Create Room'}
       </button>
-
-      {roomId && user && user.isAdmin && (
-        <button
-          type="button"
-          onClick={handleDeleteRoom}
-          style={{ marginTop: '10px', backgroundColor: 'red', color: 'white' }}
-        >
-          Delete Room
-        </button>
-      )}
     </form>
   );
 };
